@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Brochure Download Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+      display: flex; 
+      justify-content: center; 
+      align-items: center; 
+      min-height: 100vh; 
+      background: linear-gradient(135deg, #e3f2fd, #f9f9f9); 
+      padding: 20px;
+    }
+    form { 
+      background: #fff; 
+      padding: 25px; 
+      border-radius: 12px; 
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1); 
+      width: 100%; 
+      max-width: 480px;
+    }
+    h2 { 
+      text-align: center; 
+      margin-bottom: 20px; 
+      color: #333; 
+    }
+    label { 
+      display: block; 
+      margin-bottom: 6px; 
+      font-weight: 600; 
+      color: #444; 
+    }
+    input, select { 
+      width: 100%; 
+      padding: 12px; 
+      margin-bottom: 16px; 
+      border: 1px solid #ccc; 
+      border-radius: 6px; 
+      font-size: 14px;
+      transition: border-color 0.3s;
+    }
+    input:focus, select:focus {
+      border-color: #007bff;
+      outline: none;
+    }
+    .mcq { 
+      margin-bottom: 18px; 
+    }
+    .mcq label { 
+      font-weight: normal; 
+      margin-bottom: 8px; 
+    }
+    .options { 
+      margin-left: 10px; 
+    }
+    .options input { 
+      width: auto; 
+      margin-right: 8px; 
+    }
+    button { 
+      width: 100%; 
+      padding: 14px; 
+      border: none; 
+      border-radius: 8px; 
+      background: #007bff; 
+      color: white; 
+      font-size: 16px; 
+      font-weight: 600; 
+      cursor: pointer; 
+      transition: background 0.3s; 
+    }
+    button:hover { 
+      background: #0056b3; 
+    }
+    @media (max-width: 480px) {
+      form { padding: 20px; }
+      h2 { font-size: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <form id="userForm">
+    <h2>Download Our Brochure</h2>
+
+    <label for="name">Full Name</label>
+    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+    <label for="contact">Contact Number</label>
+    <input type="tel" id="contact" name="contact" placeholder="Enter your phone number" required>
+
+    <!-- MCQ Example -->
+    <div class="mcq">
+      <label>1. What are you most interested in?</label>
+      <div class="options">
+        <input type="radio" name="interest" value="Product Info" required> Product Info<br>
+        <input type="radio" name="interest" value="Pricing"> Pricing<br>
+        <input type="radio" name="interest" value="Partnership"> Partnership<br>
+        <input type="radio" name="interest" value="Other"> Other
+      </div>
+    </div>
+
+    <div class="mcq">
+      <label>2. How soon are you planning to decide?</label>
+      <div class="options">
+        <input type="radio" name="timeline" value="Immediately" required> Immediately<br>
+        <input type="radio" name="timeline" value="Within 1 Month"> Within 1 Month<br>
+        <input type="radio" name="timeline" value="3-6 Months"> 3-6 Months<br>
+        <input type="radio" name="timeline" value="Just Exploring"> Just Exploring
+      </div>
+    </div>
+
+    <button type="submit">Submit & Download</button>
+  </form>
+
+  <script>
+    document.getElementById("userForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      // Replace with your Drive direct-download link
+      const fileUrl = "https://drive.google.com/uc?export=download&id=1nqO0KM8hlHwuS5kX9d4CCbU3wsAAEfHU";
+
+      const a = document.createElement("a");
+      a.href = fileUrl;
+      a.download = "Brochure.pdf"; 
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+
+      alert("Thank you! Your brochure download will begin shortly.");
+    });
+  </script>
+
+</body>
+</html>
